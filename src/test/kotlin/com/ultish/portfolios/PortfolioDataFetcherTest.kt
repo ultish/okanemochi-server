@@ -58,6 +58,23 @@ class PortfolioDataFetcherTest {
    }
 
    @Test
+   fun emptyArgs() {
+      val portfolioNames: List<String> = dgsQueryExecutor
+         .executeAndExtractJsonPath(
+            """
+         {
+            portfolios(name: "") {
+               id
+               name
+               baseIncome
+            }
+         }
+         """.trimIndent(), "data.portfolios[*].name"
+         )
+      assertThat(portfolioNames.isEmpty())
+   }
+
+   @Test
    fun exceptional() {
       Mockito.`when`(
          repository.findAll(

@@ -21,7 +21,7 @@ class PortfolioDataFetcher {
       @InputArgument name: String?
    ): List<Portfolio> {
       val builder = BooleanBuilder()
-
+ 
       name?.let {
          builder.and(QPortfolio.portfolio.name.equalsIgnoreCase(it))
       }
