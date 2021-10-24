@@ -11,9 +11,10 @@ class Portfolio(
    val id: String,
    val name: String,
    val baseIncome: Double
-)
-
-fun Portfolio.toTO() = com.ultish.generated.types.Portfolio(
-   id, name,
-   baseIncome
-)
+) : GraphQLEntity<com.ultish.generated.types.Portfolio> {
+   override fun toGqlType(): com.ultish.generated.types.Portfolio =
+      com.ultish.generated.types.Portfolio(
+         id, name,
+         baseIncome
+      )
+}
