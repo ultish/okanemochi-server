@@ -1,0 +1,9 @@
+type Query {
+    portfolios(name: String): [Portfolio]
+}
+
+type Portfolio {
+    id: ID!
+    name: String!
+    baseIncome: Float!
+}
